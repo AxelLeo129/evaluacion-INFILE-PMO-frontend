@@ -1,27 +1,42 @@
-# Angular17Example
+### Colaboradores
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.7.
+<table>
+  <tr>
+    <td align="center"><a style="color: black" href="https://github.com/AxelLeo129"><img src="https://github.com/AxelLeo129.png" width="100" height="100" alt="Axel Leonardo"><br>Axel Leonardo</a></td>
+  </tr>
+</table>
 
-## Development server
+Realizado con las siguientes tecnologías:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Node JS v20.13.0
+- NPM v10.5.2
+- Javascript
+- Typesscript
+- Angular 17
 
-## Code scaffolding
+## Instalación
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Sigue estos pasos para configurar el proyecto localmente:
 
-## Build
+1. **Clonar repositorio**
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+   Abre una terminal y ejecuta el siguiente comando para clonar el repositorio:
+    `git clone https://github.com/AxelLeo129/evaluacion-INFILE-PMO-frontend`
 
-## Running unit tests
+2. **Instalar Node JS y agregar entorno local**
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+    Asegúrate tener la versión de Node JS v20.13.0 instalada. Si aún no lo tienes, puedes descargarlo desde la [página oficial de Node JS](https://nodejs.org/en/download).
+    Haz lo mismo con Angular 17. Si aún no lo tienes, puedes descargarlo desde la [página oficial de Angular](https://angular.dev/overview).
+    Una vez instaladas las herramientas, abre una terminar el proyecto y realiza lo siguiente:
+    
+    - Instala las dependencias: `npm install`
+    
+4. **Ejecutar el proyecto**
 
-## Running end-to-end tests
+    Para ejecutar el proyecto, dentro de la misma terminal ejecuta el siguietne comando: `ng serve -o`.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Licencia
 
-## Further help
+MIT
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+**Free Software, software to learn!**
