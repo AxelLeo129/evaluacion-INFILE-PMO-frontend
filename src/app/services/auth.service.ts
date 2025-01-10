@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, signal } from '@angular/core';
-import { LoginResponse } from '../models/auth';
+import { LoginResponse, RegisterResponse } from '../models/auth';
 import { apiURL } from '../environments/environment';
 
 /**
@@ -38,6 +38,21 @@ export class AuthService {
    */
   login(email: string, password: string): Promise<LoginResponse | any> {
     return this.http.post<LoginResponse>(apiURL + '/users/login', { email, password }).toPromise();
+  }
+
+  /**
+   * Registra un nuevo usuario.
+   *
+   * Envía los datos del usuario al backend y devuelve una promesa con la respuesta del servidor.
+   *
+   * @param email Correo electrónico del usuario.
+   * @param name Nombre del usuario.
+   * @param password Contraseña del usuario.
+   * @param repeatPassword Confirmación de la contraseña.
+   * @returns Una promesa que resuelve con la respuesta de registro de usuario.
+   */
+  register(email: string, name: string, password: string, repeatPassword: string): Promise<RegisterResponse | any> {
+    return this.http.post<RegisterResponse>(apiURL + '/users/register', { email, password, repeatPassword, name }).toPromise();
   }
 
   /**
