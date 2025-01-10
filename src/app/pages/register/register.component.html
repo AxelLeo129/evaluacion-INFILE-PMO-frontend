@@ -1,8 +1,8 @@
 <div class="d-flex justify-content-center" style="margin-top: 5%;">
   <div class="login-container">
     <h1 style="white-space: nowrap">Evaluación INFILE PMO</h1>
-    <h2>Inicio de sesión</h2>
-    <form (ngSubmit)="login()" [formGroup]="loginForm">
+    <h2>Registro</h2>
+    <form (ngSubmit)="signUp()" [formGroup]="form">
       <div class="form-group">
         <label for="email">Correo electrónico</label>
         <input type="email" id="email" formControlName="email">
@@ -12,6 +12,15 @@
           </span>
           <span *ngIf="(email?.dirty || email?.touched) && email?.invalid && email?.errors?.['pattern']">
             <small>Enter an email valid</small>
+          </span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="name">Nombre</label>
+        <input type="text" id="name" formControlName="name">
+        <div class="errors" *ngIf="name?.invalid && (name?.dirty || name?.touched)">
+          <span *ngIf="name?.errors?.['required']">
+            <small>This field is required</small>
           </span>
         </div>
       </div>
@@ -27,14 +36,20 @@
           </span>
         </div>
       </div>
-      <button type="submit" class="btn" [disabled]="!loginForm.valid">Iniciar sesión</button>
+      <div class="form-group">
+        <label for="repeatPassword">Repetir contraseña</label>
+        <input type="password" id="repeatPassword" formControlName="repeatPassword">
+        <div class="errors" *ngIf="repeatPassword?.invalid && (repeatPassword?.dirty || repeatPassword?.touched)">
+          <span *ngIf="repeatPassword?.errors?.['minlength']">
+            <small>The password must has at least 6 characaters</small>
+          </span>
+          <span *ngIf="repeatPassword?.errors?.['required']">
+            <small>The filed is required</small>
+          </span>
+        </div>
+      </div>
+      <button type="submit" class="btn" [disabled]="!form.valid">Registro</button>
     </form>
-    <div class="forgot-password">
-      ¿No tiens cuenta? <a routerLink="/register">Regístrate</a>
-    </div>
-    <div class="forgot-password">
-      <a href="#">¿Olvidaste tu contraseña?</a>
-    </div>
   </div>
   <ngx-loading [show]="loading" fullScreenBackdrop="true"></ngx-loading>
 </div>
