@@ -1,15 +1,18 @@
-@if (images) {
+@if (banner) {
 <div class="d-flex justify-content-center">
   <ngb-carousel style="width: 80%;" [showNavigationArrows]="showNavigationArrows"
     [showNavigationIndicators]="showNavigationIndicators">
-    @for (image of images; track image) {
+    @for (image of banner; track image) {
     <ng-template ngbSlide>
       <div class="picsum-img-wrapper">
-        <img [src]="image" alt="Random slide" />
+        <img [src]="image?.image || images[$index]" alt="Random slide" width="1500px"  height="500px"/>
       </div>
       <div class="carousel-caption">
-        <h3>No mouse navigation</h3>
-        <p>This carousel hides navigation arrows and indicators.</p>
+        <h3>{{image?.title}}</h3>
+        <small>Autor: {{image?.author}}</small>
+        <br>
+        <small>Fecha de publicación{{image?.published_at}}</small>
+        <p class="card-text">{{image?.description}}</p>
       </div>
     </ng-template>
     }
@@ -18,46 +21,20 @@
 }
 
 <hr />
+<div style="display: flex; justify-content: center;">
+  <div class="row row-cols-1 row-cols-md-2 g-4" style="width: 90%;">
+    <div class="col" *ngFor="let card of news; index as i">
+      <div class="card" (click)="clickCard(card, i)">
+        <img [src]="card?.image || images[i]" width="660px" height="370px" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{card?.title}}</h5>
+          <small>Autor: {{card?.author}}</small>
+          <br>
+          <small>Fecha de publicación{{card?.published_at}}</small>
+          <p class="card-text">{{card?.description}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<div class="row row-cols-1 row-cols-md-2 g-4">
-  <div class="col">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-          content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-          content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-          content.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-          content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
 </div>

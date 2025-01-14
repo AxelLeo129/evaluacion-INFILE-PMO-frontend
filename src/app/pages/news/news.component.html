@@ -1,0 +1,37 @@
+<div style="display: flex; justify-content: center;">
+  <div class="row row-cols-1 row-cols-md-2 g-4" style="width: 90%;">
+    <div class="col">
+      <div class="card">
+        <img [src]="card?.image" width="660px" height="370px" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{card?.title}}</h5>
+          <small>Autor: {{card?.author}}</small>
+          <br>
+          <small>Fecha de publicación{{card?.published_at}}</small>
+          <p class="card-text">{{card?.description}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr />
+<div style="display: flex; justify-content: center;">
+  <h2>Recomendaciones</h2>
+</div>
+<div style="display: flex; justify-content: center;">
+  <div class="row row-cols-1 row-cols-md-2 g-4" style="width: 90%;">
+    <div class="col" *ngFor="let card of banner; index as i">
+      <div class="card" (click)="clickCard(card, i)">
+        <img [src]="card?.image || images[i]" width="660px" height="370px" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{card?.title}}</h5>
+          <small>Autor: {{card?.author}}</small>
+          <br>
+          <small>Fecha de publicación{{card?.published_at}}</small>
+          <p class="card-text">{{card?.description}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

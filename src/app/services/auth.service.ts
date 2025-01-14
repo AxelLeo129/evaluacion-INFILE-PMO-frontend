@@ -40,6 +40,10 @@ export class AuthService {
     return this.http.post<LoginResponse>(apiURL + '/users/login', { email, password }).toPromise();
   }
 
+  recoveryPassword(email: string): Promise<LoginResponse | any> {
+    return this.http.post<LoginResponse>(apiURL + '/users/recovery-password', { email }).toPromise();
+  }
+
   /**
    * Registra un nuevo usuario.
    *
